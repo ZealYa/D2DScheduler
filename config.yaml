@@ -1,0 +1,19 @@
+## UniFlex Agent config file
+
+config:
+  name: "D2D Controller"
+  info: 'agent hosts global controller'
+  iface: 'lo'
+  sub: "tcp://172.31.27.93:8990"
+  pub: "tcp://172.31.27.93:8989"
+
+broker:
+  xpub: "tcp://172.31.27.93:8990"
+  xsub: "tcp://172.31.27.93:8989"
+
+control_applications:
+  D2DController:
+      file : D2DController.py
+      class_name : D2DController
+      kwargs : {"mode": "GLOBAL"}
+
